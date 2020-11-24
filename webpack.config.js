@@ -94,7 +94,7 @@ module.exports = (env, {mode}) => ({
                     ],
                   ],
                 },
-              }),
+              }), 
             new MiniCssExtractPlugin(
                 {
                     filename: '[name].[contenthash].css',
