@@ -1,5 +1,37 @@
-.container{
-    color: brown;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 2rem;
+:root {
+    --font-size: 1rem;
+    --font-fam: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+    --theme--contrast-0: #121212;
+    --theme-body-bg: #2F4858;
+    --theme-body-txt: #f3f3f3;
+    --theme-title: #ffffff;
+    --search-size-mx-h: 3rem;
+    --zIndex-header: 20;
+    --zIndex-component: 5;
+    --brand-color_1: #00ff99;
+    --brand-color_2: #00DBAD;
+    --brand-color_3: #00B6B1;
+    --brand-color_4: #0090A2;
+    --brand-color_5: #006A82;
+    --brand-color_6: #2F4858; 
+    --brand-color_7: #00ccff;
+    --brand-color_8: #0099ff;
+    --brand-color_9: #f54747;
+    --brand-color_10: #f8f524;
+    --brand-color_11: #f1a752;
+
+  }
+  
+  html {
+    box-sizing: border-box;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .root-container{
+    background-color: var(--theme-body-bg);
+    height: 100vh;
 }
+
+
