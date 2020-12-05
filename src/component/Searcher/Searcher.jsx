@@ -1,39 +1,43 @@
-import React from 'react';
+import React, {useState}from 'react';
 import {useForm} from 'react-hook-form';
-import './Search.css';
+import { useHistory } from "react-router-dom";
+import Input from './../Input/Input';
+import Select from './../Select/Select';
+import './Searcher.css';
 
-const Searcher = () => {
+
+/* los valores para los filtros de busquedas */
+const RATING = ['g', 'pg', 'pg-13', 'r'];
+const LANGUAGE = ['en', 'es', 'pt', 'fr', 'ru'];
+
+const Searcher = ({initialKeyword = '', initialRaiting ='g', initialLanguage = 'en'}) => {
+     /*Variables locales para controlar el estado */
+     //const [keyword, setKeyword] = useState(decodeURI(initialKeyword));
+     //const [raiting, setRaiting] = useState(initialRaiting);
+     //const [language, setLanguage] = useState(initialLanguage);
+    
+     /*Variables globales */
     const {register, handleSubmit, errors} = useForm();
+    const history = useHistory(); //Se crea un objeto para la navegacion
 
     const onSubmit = (data) => {
-          console.log(data);
+        history.push(`/search/${data.search}/${data.Raiting}/${data.Language}`);
     }
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="search">
            <div className="search-form">
                 <button>search</button>
-                <input type="text" 
-                        name="search" 
-                        ref={register({
-                            required: true,
-                            maxLength: 50
-                        })}
-                    />
+                <Input name="search" type="text" register={register} validate={{required: true, maxLength: 50, minLength: 3}} msg="Write a word" view_label={false} />
+           </div>
+           <p className="error-msg">
                 {errors.search?.type === "required" && "Your input is required"}
                 {errors.search?.type === "maxLength" && "Your input exceed maxLength = 50"}
-           </div>
+                {errors.search?.type === "minLength" && "Your input must exceed minLength = 3"}
+           </p>
            <div className="search-filter">
-               <label className="search-label"> Raiting:
-                    <select>
-                        <option>Ra</option>
-                    </select>
-               </label> 
-               <label className="search-label"> Language: 
-                    <select>
-                        <option>Lan</option>
-                    </select>
-               </label>
+               <Select name="Rating" register={register} validate={{required: true}} options={RATING} />
+               <Select name="Language" register={register} validate={{required: true}} options={LANGUAGE} />
            </div>
         </form>
     );

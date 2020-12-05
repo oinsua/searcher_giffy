@@ -1,5 +1,6 @@
 :root {
     --font-size: 1rem;
+    --font-size-link: 0.8rem;
     --font-fam: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
     --theme--contrast-0: #121212;
     --theme-body-bg: #2F4858;
@@ -19,6 +20,9 @@
     --brand-color_9: #f54747;
     --brand-color_10: #f8f524;
     --brand-color_11: #f1a752;
+    --brand-color_12: rgba(20, 4, 236, 0.5);
+    --brand-color_13: rgba(146, 9, 9, 0.9);
+
 
   }
   
@@ -31,7 +35,9 @@
 
   .root-container{
     background-color: var(--theme-body-bg);
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 

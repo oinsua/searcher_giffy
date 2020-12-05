@@ -22,19 +22,18 @@ const App = () => {
                         <img src={Logo} alt="logo-giffy"/>
                     </Link>
             </nav>
-           
-            <section className="section-container">
+            <section className="section-search">
                 <Switch>
                     <Route path="/" exact><Home/></Route>
-                    <Route path="/detail"><Detail/></Route>
                     <Route path="/login"><Login/></Route>
-                    <Route path="/search"><Search/></Route>
+                    <Route path="/detail/:id"><Detail/></Route>
+                    <Route path="/search/:keyword/:raiting?/:language?"><Search/></Route>
                 </Switch>
             </section>
-            <aside>
+            <aside className="trending">
                 Trendings
             </aside>
-            <footer>Copyrigth</footer>
+            <footer className="footer">Copyrigth</footer>
         </>
     );
 }

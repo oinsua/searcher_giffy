@@ -1,0 +1,26 @@
+.gifs{
+  position: relative;  
+  
+}
+
+.gifs-img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.gifs-link{
+    position: absolute;
+    font-family: var(--font-fam);
+    font-weight: 700;
+    font-size: var(--font-size-link);
+    color: var(--theme-title);
+    text-decoration: none;
+    padding: 5px;
+    max-width: 280px;
+}
+
+.gifs-link:hover{
+   color: var(--brand-color_7);
+}

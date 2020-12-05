@@ -1,0 +1,20 @@
+import {url, api_key} from './config/service_config';
+/* Extraer las propiedades correspondientes y retornar el Gif */
+const response_Gif_Id = res => {
+       const {id, title, rating, images} = res;
+       const url = images.original.url;
+       return {id, title, rating, url};
+}
+
+const get_Gif_ID = ({id}) => {
+    /*Construir la url para la consulta */
+    const url_gif = `${url}/${id}?api_key=${api_key}`;
+    
+    /* consulta al servicio giffy para obtener un Gif a partir de su id */
+    return fetch(url_gif)
+            .then(res => res.json())
+            .catch(error => console.error('Error:', error))
+            .then(response_Gif_Id);
+}
+
+export default get_Gif_ID
