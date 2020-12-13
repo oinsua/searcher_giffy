@@ -10,7 +10,7 @@ import './Searcher.css';
 const RATING = ['g', 'pg', 'pg-13', 'r'];
 const LANGUAGE = ['en', 'es', 'pt', 'fr', 'ru'];
 
-const Searcher = ({initialKeyword = '', initialRaiting ='g', initialLanguage = 'en'}) => {
+const Searcher = ({initialKeyword = '', initialRating ='g', initialLanguage = 'en'}) => {
      /*Variables locales para controlar el estado */
      //const [keyword, setKeyword] = useState(decodeURI(initialKeyword));
      //const [raiting, setRaiting] = useState(initialRaiting);
@@ -21,7 +21,7 @@ const Searcher = ({initialKeyword = '', initialRaiting ='g', initialLanguage = '
     const history = useHistory(); //Se crea un objeto para la navegacion
 
     const onSubmit = (data) => {
-        history.push(`/search/${data.search}/${data.Raiting}/${data.Language}`);
+        history.push(`/search/${data.search}/${data.Rating}/${data.Language}`);
     }
 
     return (

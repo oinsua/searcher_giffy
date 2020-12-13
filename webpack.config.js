@@ -6,6 +6,7 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
+
 const rules_javascript = {
                             test: /\.(js|jsx)$/,
                             exclude: /node_modules/,
@@ -32,7 +33,9 @@ const rules_img = {
 
 module.exports = (env, {mode}) => ({
      /**Entradas **/
-     entry: path.join(__dirname, 'src','index.js'),
+     entry: {
+       main: path.resolve(__dirname, './src/index.js'),
+     },
 
     /**Salidas **/    
     output: {
@@ -53,8 +56,10 @@ module.exports = (env, {mode}) => ({
      devServer: {
               contentBase: path.join(__dirname, "dist"),
               compress: true,
-              port: 8080,
-              historyApiFallback: true 
+              historyApiFallback: true,
+              //contentBase: path.resolve(__dirname, './dist'),
+              open: true,
+              port: 8080
           },
 
     module: { 

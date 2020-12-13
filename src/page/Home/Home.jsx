@@ -2,6 +2,8 @@ import React from 'react';
 import Searcher from './../../component/Searcher/Searcher';
 import List_Gifs from './../../component/List_Gifs/List_Gifs';
 import {useSearchGiffy} from './../../hook/useSearchGiffy';
+import Skeleton_List from '../../skeletons/List_Gif/Skeleton_List';
+import {Redirect} from 'react-router-dom';
 import './Home.css';
 
 const Home = () => {
@@ -10,14 +12,21 @@ const Home = () => {
     const raiting = localStorage.getItem('lastraiting');
     const language = localStorage.getItem('lastlanguage');
 
-    /*Ejecutar el use para recuperar los gifs */
-    const {gifs, setGifs} = useSearchGiffy({keyword, raiting, language});
+    /*Ejecutar el use para recuperar los gifs, el estasdo del loading y el error */
+    const {gifs, loading, error} = useSearchGiffy({keyword, raiting, language});
+    /*Si no existen el listado de gifs, se retorna null */
+    if(!gifs) return null;
 
     return (
         <>
            <Searcher intitialKeyword={keyword} initialRaiting={raiting} initialLanguage={language}/>
            <h1 className="app-title"> Your last Search was "{decodeURI(keyword)}"</h1>
-           <List_Gifs gifs={gifs} />
+           {   //Si loading es true, muestra Skeleton sino el listado de Gif.
+               loading ? <Skeleton_List array={[1,2,3,4,5,6,7,8,9,10]} /> : <List_Gifs gifs={gifs} />
+           }
+           {  //Si error es true, muestra un pagina 404
+               error ? <Redirect to="/Error404" /> : null
+           }
         </>
     );
 }

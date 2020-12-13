@@ -1,11 +1,15 @@
 .gifs{
-  position: relative;  
-  
+  position: relative; 
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0px;
 }
 
 .gifs-img{
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
     object-fit: cover;
     border-radius: 10px;
 }
@@ -19,8 +23,49 @@
     text-decoration: none;
     padding: 5px;
     max-width: 280px;
+    top: 0px;
 }
 
 .gifs-link:hover{
    color: var(--brand-color_7);
+}
+
+/* Style to gif detail*/
+.detail-gif{
+  position: relative; 
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0px;
+}
+
+.detail-gif-img{
+    width: 95%;
+    height: 95%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.detail-gif-link{
+    position: absolute;
+    font-family: var(--font-fam);
+    font-weight: 700;
+    font-size: var(--font-size-link);
+    color: var(--theme-title);
+    text-decoration: none;
+    padding: 5px;
+    width: 90%;
+    top: 0px;
+}
+
+.detail-gif-title{
+  position: absolute;
+  font-family: var(--font-fam);
+  font-weight: 700;
+  color: var(--theme-title);
+  text-decoration: none;
+  padding: 5px;
+  width: 90%;
+  top: 0px;
 }
