@@ -30,9 +30,6 @@ const App = () => {
                     <Route path="/search/:keyword/:raiting?/:language?"><Search/></Route>
                 </Switch>
             </section>
-            <aside className="trending">
-                Trendings
-            </aside>
             <footer className="footer">Copyrigth</footer>
         </>
     );

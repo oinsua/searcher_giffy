@@ -10,12 +10,13 @@ const response_Gif_Id = res => {
 
 const get_Gif_Id = ({id}) => {
     /*Construir la url para la consulta */
-    const url_gif = `${url}/${id}?api_key=${api_key}`;
+    const url_gif = `${url}/gifs/${id}?api_key=${api_key}`;
     /* consulta al servicio giffy para obtener un Gif a partir de su id */
     return fetch(url_gif)
-            .then(res => res.json())
-            .catch(error => console.error('Error:', error))
-            .then(response_Gif_Id);
+             .then(res => res.ok ? Promise.resolve(res) : Promise.reject(res))
+             .then(res => res.json())
+             .catch(error => console.error('Error:', error))
+             .then(response_Gif_Id);
 }
 
 export default get_Gif_Id

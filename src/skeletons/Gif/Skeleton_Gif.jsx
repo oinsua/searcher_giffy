@@ -4,7 +4,7 @@ import {Skeleton_gif} from './styled';
 import Element from '../Element/Element';
 
 const Skeleton_Gif = ({theme, type, width, height}) => {
-  console.log(type,width,height);
+    
     return ( 
         <Skeleton_gif theme={theme} width={width} height={height}>
             <div>

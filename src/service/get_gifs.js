@@ -17,10 +17,11 @@ const response_Gif = res => {
 
 const get_gifs = ({keyword = '', limit = 10, rating = 'g', language= 'en', page = 0} = {}) => {
     /*Construir la url para la consulta a la API Giffy */
-    const api_url = `${url}/search?api_key=${api_key}&q=${keyword}&limit=${limit}&offset=${page*limit}&rating=${rating}&lang=${language}`;
+    const api_url = `${url}/gifs/search?api_key=${api_key}&q=${keyword}&limit=${limit}&offset=${page*limit}&rating=${rating}&lang=${language}`;
 
     /* consulta al servicio giffy para obtener todos los gifs de una keyword */
     return fetch(api_url)
+            .then(res => res.ok ? Promise.resolve(res) : Promise.reject(res))
             .then(res => res.json())
             .catch(error => console.error('Error:', error))
             .then(response_Gif);
