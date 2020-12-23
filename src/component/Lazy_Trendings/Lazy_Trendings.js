@@ -7,7 +7,7 @@ const Trendings = React.lazy( //Se carga el componente a traves de lazy y solo s
                             )
 
 const Lazy_Trendings = () => {
-    const {intersection, ref_element} =  useIntersection_Observer({distance: '300px'}); //Se crean las variables de Intersection Observer
+    const {intersection, ref_element} =  useIntersection_Observer({distance: '400px'}); //Se crean las variables de Intersection Observer
 
     return (
         <Suspense fallback={<h1>Loading...</h1>}>

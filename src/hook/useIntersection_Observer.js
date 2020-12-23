@@ -24,6 +24,9 @@ export const useIntersection_Observer = ({distance = '200px', ref_external, flag
            setIntersection(true);  // Se actualiza el estado a true
            flag && observer.disconnect(); //La bandera esta en true, y permite el observer deje de observar
          }
+         else{
+            !flag && setIntersection(false);// Cambia true, Permite controlar la cantidad de veces que se debe de hacer intersecting
+         }
       }
       /*Promesa que se encarga de definir si estamos en presencia de un navegador que soporta Intersection Observer */
       Promise.resolve( //Si IntersectionObserver existe, entonces usamos IntersectionObserver, sino importamos el pollyfill
