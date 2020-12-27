@@ -6,16 +6,16 @@ import Skeleton_Detail from '../../skeletons/Detail/Skeleton_Detail';
 
 const Detail = () => {
      const {id} = useParams();
+
      /*Se ejecuta el use para recuperar el Gif, el estado del loading y el error */
      const {gif, loading, error} = useDetailGif({id});
-     gif.css = "detail-gif";  //Se le asigna un nobre de clase para estilar 
-
-     if(!gif) return null; //Si no existe el gif return null
-
-    return (
+     
+     if(gif) gif.css = "detail-gif";  //Se le asigna un nombre de clase para estilar el skeleton
+    
+    return ( 
         <>
         { //Si loading es true, se muestra skeleton sino el Gifs en vista detalle
-            loading ? 
+            loading ?
                      <Skeleton_Detail type="detail" width="300px" height="280px"/>
                     :
                      <Gifs {...gif} />

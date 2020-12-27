@@ -1,10 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import get_gifs from './../service/get_gifs';
+import Context_Gifs from '../context/Context_Gifs';
 
 const PAGE_INITIAL = 0; //Valor inicial para el infinite scroll
 
 export const useSearchGiffy = ({keyword, rating, language}={keyword:''}) => {
-    const [gifs, setGifs] = useState([]);
+    /*Almacenamos los gifs en el contexto global que tenemos definidos */ 
+    const {gifs, setGifs} = useContext(Context_Gifs);
+    /*Se recupera la keyword del localstorage o como parametro de la funcion */
     const use_keyword = keyword || localStorage.getItem('lastkeyword');
 
     /* Crear los estados Loading y Error */
@@ -55,7 +58,7 @@ export const useSearchGiffy = ({keyword, rating, language}={keyword:''}) => {
                             throw  new error;           
                              })
         }, 3000);
-     },[page, use_keyword, rating, language]) 
+     },[page, use_keyword, rating, language, setGifs]) 
 
     return {
             gifs,
