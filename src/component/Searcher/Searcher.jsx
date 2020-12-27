@@ -10,8 +10,12 @@ import './Searcher.css';
 const RATING = ['g', 'pg', 'pg-13', 'r'];
 const LANGUAGE = ['en', 'es', 'pt', 'fr', 'ru'];
 
-const Searcher = () => {
-
+const Searcher = ({initialKeyword = '', initialRating ='g', initialLanguage = 'en'}) => {
+     /*Variables locales para controlar el estado */
+     //const [keyword, setKeyword] = useState(decodeURI(initialKeyword));
+     //const [raiting, setRaiting] = useState(initialRaiting);
+     //const [language, setLanguage] = useState(initialLanguage);
+    
      /*Variables globales */
     const {register, handleSubmit, errors} = useForm();
     const history = useHistory(); //Se crea un objeto para la navegacion
