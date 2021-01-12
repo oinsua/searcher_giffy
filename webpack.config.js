@@ -54,10 +54,9 @@ module.exports = (env, {mode}) => ({
               },
 
      devServer: {
-              contentBase: path.join(__dirname, "dist"),
+              contentBase: path.join(__dirname, "public"),
               compress: true,
               historyApiFallback: true,
-              //contentBase: path.resolve(__dirname, './dist'),
               open: true,
               port: 8080
           },
