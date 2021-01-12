@@ -1,5 +1,6 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
+import {Helmet} from "react-helmet";
 //Importando componentes
 import Searcher from './../../component/Searcher/Searcher';
 import List_Gifs from './../../component/List_Gifs/List_Gifs';
@@ -9,6 +10,9 @@ import Skeleton_List from '../../skeletons/List_Gif/Skeleton_List';
 import {useSearchGiffy} from './../../hook/useSearchGiffy';
 //Importando CSS
 import './Home.css';
+
+//Importando el Favicon
+import Favicon from '../../assets/images/favicon.png'
 
 
 const Home = () => {
@@ -27,10 +31,19 @@ const Home = () => {
            <Searcher intitialKeyword={keyword} initialRaiting={raiting} initialLanguage={language}/>
            <h1 className="app-title"> Your last Search was "{decodeURI(keyword)}"</h1>
            {   //Si loading es true, muestra Skeleton sino el listado de Gif.
-               loading ? 
-                          <Skeleton_List array={[1,2,3,4,5,6,7,8,9,10]} /> 
+               loading ?
+                            <Skeleton_List array={[1,2,3,4,5,6,7,8,9,10]} /> 
                        : 
-                          <List_Gifs gifs={gifs} />
+                       <>
+                          <Helmet>
+                                <title>Giffy-Home</title>
+                                <meta name="application-name" content="searcher_giffy" />
+                                <meta name="description" content="Giffy-Home"/>
+                                <meta name="google" content="notranslate"/>
+                                <link rel="icon" href={Favicon} sizes="32x32" type="image/png"></link>
+                            </Helmet>
+                            <List_Gifs gifs={gifs} />
+                       </>
            }
            <Lazy_Trendings />   
            {  //Si error es true, muestra un pagina 404

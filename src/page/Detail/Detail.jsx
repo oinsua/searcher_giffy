@@ -1,8 +1,13 @@
 import React from 'react';
-import {useDetailGif} from './../../hook/useDetailGif';
+import {Helmet} from "react-helmet";
 import {useParams, Redirect} from 'react-router-dom';
+//Importando componentes
+import {useDetailGif} from './../../hook/useDetailGif';
 import Gifs from './../../component/Gifs/Gifs';
 import Skeleton_Detail from '../../skeletons/Detail/Skeleton_Detail';
+
+//Importando el Favicon
+import Favicon from '../../assets/images/favicon.png'
 
 const Detail = () => {
      const {id} = useParams();
@@ -18,7 +23,16 @@ const Detail = () => {
             loading ?
                      <Skeleton_Detail type="detail" width="300px" height="280px"/>
                     :
-                     <Gifs {...gif} />
+                    <>
+                       <Helmet>
+                                <title>Giffy-Detail</title>
+                                <meta name="application-name" content="searcher_giffy" />
+                                <meta name="description" content="Giffy-Detail"/>
+                                <meta name="google" content="notranslate"/>
+                                <link rel="icon" href={Favicon} sizes="32x32" type="image/png"></link>
+                        </Helmet>
+                        <Gifs {...gif} />
+                    </>
         }
         {  //Si error es true, muestra un pagina 404
                error ? <Redirect to="/Error404" /> : null
