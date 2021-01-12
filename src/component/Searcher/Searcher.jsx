@@ -1,6 +1,7 @@
-import React, {useState}from 'react';
+import React, {useState, useCallback}from 'react';
 import {useForm} from 'react-hook-form';
 import { useHistory } from "react-router-dom";
+//Importar componentes
 import Input from './../Input/Input';
 import Select from './../Select/Select';
 import './Searcher.css';
@@ -10,19 +11,14 @@ import './Searcher.css';
 const RATING = ['g', 'pg', 'pg-13', 'r'];
 const LANGUAGE = ['en', 'es', 'pt', 'fr', 'ru'];
 
-const Searcher = ({initialKeyword = '', initialRating ='g', initialLanguage = 'en'}) => {
-     /*Variables locales para controlar el estado */
-     //const [keyword, setKeyword] = useState(decodeURI(initialKeyword));
-     //const [raiting, setRaiting] = useState(initialRaiting);
-     //const [language, setLanguage] = useState(initialLanguage);
-    
+const Searcher = () => {    
      /*Variables globales */
     const {register, handleSubmit, errors} = useForm();
     const history = useHistory(); //Se crea un objeto para la navegacion
 
-    const onSubmit = (data) => {
+    const onSubmit = useCallback((data) => {
         history.push(`/search/${data.search}/${data.Rating}/${data.Language}`);
-    }
+    }, [history])
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="search">
@@ -43,4 +39,4 @@ const Searcher = ({initialKeyword = '', initialRating ='g', initialLanguage = 'e
     );
 }
 
-export default Searcher;
+export default React.memo(Searcher);

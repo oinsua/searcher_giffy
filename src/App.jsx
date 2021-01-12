@@ -1,11 +1,15 @@
 import React from 'react';
 import {Link, Route, Switch} from 'react-router-dom';
+//Importar componentes
 import Home from './page/Home/Home';
 import Detail from './page/Detail/Detail';
 import Login from './page/Login/Login';
 import Search from './page/Search/Search'; 
-import Logo from './assets/images/logo_blanco1.png';
+import Error404 from './page/Error/Error404';
+//Importar contexto
 import {Context_Gifs_Provider} from './context/Context_Gifs';
+//Importar archivos
+import Logo from './assets/images/logo_blanco1.png';
 import './App.css'
 
 const App = () => {
@@ -28,6 +32,7 @@ const App = () => {
                         <Route path="/" exact><Home/></Route>
                         <Route path="/login"><Login/></Route>
                         <Route path="/detail/:id"><Detail/></Route>
+                        <Route path="/Error404"><Error404/></Route>
                         <Route path="/search/:keyword/:raiting?/:language?"><Search/></Route>
                     </Switch>
                 </section>
