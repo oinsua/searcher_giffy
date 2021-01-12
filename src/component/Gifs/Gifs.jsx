@@ -17,4 +17,4 @@ const Gifs = ({id, title, url, css}) => {
     )
 }
 
-export default Gifs
+export default React.memo(Gifs); 

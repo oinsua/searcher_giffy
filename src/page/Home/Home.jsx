@@ -28,7 +28,7 @@ const Home = () => {
 
     return (
         <> 
-           <Searcher intitialKeyword={keyword} initialRaiting={raiting} initialLanguage={language}/>
+           <Searcher/>
            <h1 className="app-title"> Your last Search was "{decodeURI(keyword)}"</h1>
            {   //Si loading es true, muestra Skeleton sino el listado de Gif.
                loading ?

@@ -1,17 +1,26 @@
 import React, {useRef, useCallback, useEffect} from 'react';
 import { useParams, Redirect} from "react-router-dom";
+<<<<<<< HEAD
 import {Helmet} from "react-helmet";
 import debounce_it from 'just-debounce-it';
 //Importando componentes
+=======
+import debounce_it from 'just-debounce-it';
+//Importar componentes
+>>>>>>> Performance
 import Searcher from './../../component/Searcher/Searcher';
-import {useSearchGiffy} from './../../hook/useSearchGiffy';
 import List_Gifs from './../../component/List_Gifs/List_Gifs';
 import Skeleton_List from '../../skeletons/List_Gif/Skeleton_List';
+//Importar hook
+import {useSearchGiffy} from './../../hook/useSearchGiffy';
 import { useIntersection_Observer } from '../../hook/useIntersection_Observer';
 
+<<<<<<< HEAD
 //Importando el Favicon
 import Favicon from '../../assets/images/favicon.png'
 
+=======
+>>>>>>> Performance
  
 const Search = () => {
     /*Tomando los parametros enviados por la url */
