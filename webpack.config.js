@@ -39,7 +39,7 @@ module.exports = (env, {mode}) => ({
 
     /**Salidas **/    
     output: {
-                path: path.resolve(__dirname, 'dist'),
+                path: path.resolve(__dirname, 'public'),
                 publicPath: '/',  //para especificar la base de la ruta
                 filename: '[name].[contenthash].js'
             },
