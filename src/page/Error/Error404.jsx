@@ -3,7 +3,7 @@ import {Helmet} from "react-helmet";
 import {Link} from 'react-router-dom';
 
 //Importando el Favicon
-import Favicon from '../../../assets/images/favicon.png';
+import Favicon from './../../assets/images/favicon.png';
 import Img_Error from './../../assets/images/error404.gif';
 
 const Error404 = () => {
